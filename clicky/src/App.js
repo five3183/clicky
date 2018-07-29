@@ -4,16 +4,20 @@ import Header from './components/Header/Header'
 import Intro from './components/Intro/Intro'
 import Game from './components/Game/Game'
 import minions from './minion.json'
+import Footer from './components/Footer/Footer'
+
 
 let guessArray = []
 let highScore = 0
 let currentScore = 0
+let status = "Click an image to begin!"
 
 class App extends Component {
   state = {
     minions,
     highScore,
-    currentScore
+    currentScore,
+    status
   }
   shuffle = (array) => {
     let counter = array.length;
@@ -37,14 +41,18 @@ class App extends Component {
   }
   checkGuess = guess => {
     if(guessArray.includes(guess)) {
-      console.log("this is highScore:  " + highScore)
+      status = "You guessed incorrectly!"
       currentScore = 0
+      this.setState({status})
       this.setState({currentScore})
       this.shuffle(minions)
+      guessArray = []
     }
     else {
       guessArray.push(guess)
       currentScore = (currentScore + 1)
+      status = "You guessed correctly!"
+      this.setState({status})
       this.setState({currentScore})
       this.shuffle(minions)
       if(currentScore > highScore) {
@@ -59,6 +67,7 @@ class App extends Component {
         <Header 
           highScore={this.state.highScore}
           currentScore={this.state.currentScore}
+          status={this.state.status}
         
         />
         <Intro />
@@ -74,6 +83,7 @@ class App extends Component {
             />
           ))}
         </Wrapper>
+        <Footer />
       </div>
     );
   }

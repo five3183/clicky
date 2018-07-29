@@ -1,11 +1,8 @@
 import React from 'react'
 import './game.css'
-import minions from '../../minion.json'
-let guessArray = []
-
 
 const Game = props => (
-	<div className="col-md-2">
+	<div className="col-md-3">
 		<img className="tile" alt={props.name} src={props.image} onClick={() => 
 			props.checkGuess(props.id)}/>
 	</div>
