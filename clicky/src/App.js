@@ -5,6 +5,7 @@ import Intro from './components/Intro/Intro'
 import Game from './components/Game/Game'
 import minions from './minion.json'
 
+let guessArray = []
 let highScore = 0
 let currentScore = 0
 
@@ -34,6 +35,24 @@ class App extends Component {
     const minions = array
     return this.setState({minions})
   }
+  checkGuess = guess => {
+    if(guessArray.includes(guess)) {
+      console.log("this is highScore:  " + highScore)
+      currentScore = 0
+      this.setState({currentScore})
+      this.shuffle(minions)
+    }
+    else {
+      guessArray.push(guess)
+      currentScore = (currentScore + 1)
+      this.setState({currentScore})
+      this.shuffle(minions)
+      if(currentScore > highScore) {
+        highScore = currentScore
+        this.setState({highScore})
+      }
+    }
+  }
   render() {
     return (
       <div className="container-fluid">
@@ -48,7 +67,10 @@ class App extends Component {
             <Game
               id={minion.id}
               image={minion.image}
+              checkGuess={this.checkGuess}
               shuffle={this.shuffle}
+              highScore={this.state.highScore}
+              currentScore={this.state.currentScore}
             />
           ))}
         </Wrapper>

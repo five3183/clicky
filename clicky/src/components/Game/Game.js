@@ -1,14 +1,13 @@
 import React from 'react'
 import './game.css'
 import minions from '../../minion.json'
+let guessArray = []
 
-const checkGuess = new Promise ((resolve, reject) => {
-
-})
 
 const Game = props => (
 	<div className="col-md-2">
-		<img className="tile" alt={props.name} src={props.image} onClick={() => props.shuffle(minions)}/>
+		<img className="tile" alt={props.name} src={props.image} onClick={() => 
+			props.checkGuess(props.id)}/>
 	</div>
 )
 
