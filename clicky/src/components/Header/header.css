@@ -1,0 +1,22 @@
+.head {
+    background-color: blue;
+    color: white;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+h3 {
+    text-align: center;
+    padding: 40px;
+    font-size: 37px;
+}
+h4 {
+    text-align: left;
+}
+hr {
+    box-shadow: 0 0 10px 5px white;
+    width: 100%;
+}
