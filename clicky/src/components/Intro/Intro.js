@@ -6,7 +6,7 @@ class Intro extends Component {
         return (
             <div className="jumbotron jumbotron-fluid" id="intro">
                 <h1>Clicky Game!</h1>
-                <p>Click on an image to earn points, but don't click on any more than once!</p>
+                <p>Click on an image to earn points, click it twice and you lose!</p>
             </div>    
         )
     }

@@ -21,16 +21,9 @@ class App extends Component {
   }
   shuffle = (array) => {
     let counter = array.length;
-    
-    // While there are elements in the array
     while (counter > 0) {
-      // Pick a random index
       let index = Math.floor(Math.random() * counter);
-    
-      // Decrease counter by 1
       counter--;
-    
-      // And swap the last element with it
       let temp = array[counter];
       array[counter] = array[index];
       array[index] = temp;
@@ -41,7 +34,7 @@ class App extends Component {
   }
   checkGuess = guess => {
     if(guessArray.includes(guess)) {
-      status = "You guessed incorrectly!"
+      status = "Try Again!"
       currentScore = 0
       this.setState({status})
       this.setState({currentScore})
@@ -51,7 +44,7 @@ class App extends Component {
     else {
       guessArray.push(guess)
       currentScore = (currentScore + 1)
-      status = "You guessed correctly!"
+      status = "Keep Going!"
       this.setState({status})
       this.setState({currentScore})
       this.shuffle(minions)
