@@ -20,3 +20,7 @@ hr {
     box-shadow: 0 0 10px 5px white;
     width: 100%;
 }
+p {
+    text-align: center;
+    font-size: 20px;
+}
